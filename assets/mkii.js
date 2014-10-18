@@ -18,22 +18,27 @@ $(document).ready(function () {
 
   // set background
   bg = new Image();
-  bgX = 0; bgY = 0;
+  bgX = 10; bgY = 0;
   bg.src = "assets/imgs/test_background.jpg";
   // set foreground
   fg = new Image();
-  fgX = 0; fgY = 350;
+  fgX = 10; fgY = 350;
   fg.src = "assets/imgs/test_background.jpg";
 });
 
 // loop (30 FPS)
-setInterval(function() { update(); draw(); }, 1000/30);
-
-function update() {
-  
-}
+setInterval(function() { draw(); }, 1000/30);
 
 function draw() {
   ctx.drawImage(bg, bgX, bgY);
   ctx.drawImage(fg, fgX, fgY);
 }
+
+$(document).keydown(function(ev) {
+  switch(ev.which){
+    case 37:
+      bgX--; fgX -= 2; break;
+    case 39:
+      bgX++; fgX += 2; break;
+  }
+});
