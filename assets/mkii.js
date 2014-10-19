@@ -30,6 +30,7 @@ $(document).ready(function () {
 setInterval(function() { draw(); }, 1000/30);
 
 function draw() {
+  ctx.clearRect(0, 0, w, h);
   ctx.drawImage(bg, bgX, bgY);
   ctx.drawImage(fg, fgX, fgY);
 }
